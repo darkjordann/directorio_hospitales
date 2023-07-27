@@ -58,30 +58,6 @@ app.use(session({
 //routes
 app.use(require('./routes/index'));
 
-let googleSheet = require('./spreadsheets')
-
-app.post('/apartarboletosrifa', async (req, res) => {
-    try{
-        const listadoBoletos = JSON.parse(req.body.listadoBoletos);
-        const WA = req.body.numeroWhats;
-        const nombre = req.body.nombre;
-        const apellido = req.body.apellido;
-        const estado = req.body.estado;
-    
-        res.header("Access-Control-Allow-Origin", "*");
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    
-        res.end(JSON.stringify(listadoBoletos));
-
-        await googleSheet.actualizarRegistroGS(listadoBoletos,WA,nombre,apellido,estado);
-
-    }catch(err){
-        console.log(err);
-    }
-   
-});
-
 app.listen(app.get('port'), () => {
     console.log('listening on port',app.get('port'));
 });

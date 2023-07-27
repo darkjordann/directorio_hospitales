@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//spreadsheets para la data de las rifas
-let googleSheet = require('../spreadsheets')
-const obtenerRegistros = async (req,res) => {
-    registros = await googleSheet.accederGoogleSheet()
-    return registros
-}
-
 //Routes
 router.get('/', (req, res) => {
     //console.log(__dirname+"/views/index.html")
