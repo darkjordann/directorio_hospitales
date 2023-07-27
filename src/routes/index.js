@@ -15,12 +15,9 @@ router.get('/home', (req, res) => {
 router.get('/listaDoctores', async (req, res) => {
     //console.log(req.session.user)
     try{
-        const rows = await obtenerRegistros();
-        objQuery = JSON.parse(JSON.stringify(rows));
         res.render('listaDoctores.html', { 
             title: 'Lista Doctores',
-            msg: req.session.name,
-            rowsRifas:objQuery
+            msg: req.session.name
         });
     }catch(err){
         console.log(err);
