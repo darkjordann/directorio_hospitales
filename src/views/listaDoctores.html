@@ -4565,7 +4565,7 @@
     }
 
     for (Element in FilterJson){
-        document.getElementById('containerEspecial').innerHTML += '<div class="containerEspecialidad" onclick="modalshow(&#39'+FilterJson[Element].image+'&#39)"><div class="itemEspecialidadList"><img src="'+FilterJson[Element].uri+'" style="width: 100%;" alt="image"></div></div>';
+        document.getElementById('containerEspecial').innerHTML += '<div class="containerEspecialidadList" onclick="modalshow(&#39'+FilterJson[Element].image+'&#39)"><div class="itemEspecialidadList"><img src="'+FilterJson[Element].uri+'" style="width: 100%;" alt="image"></div></div>';
     }
 
     function searchFilter(){

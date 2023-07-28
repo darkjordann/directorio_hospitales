@@ -130,6 +130,15 @@ body{
   width: 100%;
 }
 
+.containerEspecialidadList{
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 50px;
+  width: 100%;
+}
+
 .itemEspecialidadList{
   max-width: 100%;
   padding: 10px;
