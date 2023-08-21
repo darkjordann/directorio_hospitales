@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body id="NewBody">
+
+    <div style="width: 100%;">
+        <img id="imageSourceAnuncios" src="/images/promocional3.jpg" style="width: 100%;" alt="image">
+    </div>
+
+    <script>
+        let images = ['/images/promocional1.jpg', '/images/promocional2.jpg', '/images/promocional3.jpg'];
+
+        let index = 0;
+        const imgElement = document.querySelector('#imageSourceAnuncios');
+
+        function change() {
+        imgElement.src = images[index];
+        index > 1 ? index = 0 : index++;
+        }
+
+        window.onload = function () {
+            setInterval(change, 5000);
+            console.log("change")
+        };
+    </script>
+
+</body>
+
+<% if(typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title:'<%= alertTitle %>',
+            text:'<%= alertMessage %>',
+            icon:'<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+        }).then(()=>{
+            window.location='<%= ruta %>'
+        })
+    </script>
+<% } %>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body>
+
+    <%- include("./partials/header.html") %>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Inicio</th>
+                <th>Paciente</th>
+                <th>Procedimiento</th>
+                <th>Status</th>
+                <th>Cirujano</th>
+                <th>Status</th>
+                <th>Sala</th>
+                <th>Status</th>
+                <th>Episodio</th>
+                <th>Status</th>
+                <th>Habitacion</th>
+                <th>Status</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+        <% Object.values(objQuery).forEach(function(registro){ %>
+            <tr>
+                <td><%= registro.column1 %></td>
+                <td><%= registro.column2 %></td>
+                <td><%= registro.column3 %></td>
+                <td style="background-color: <% if(registro.column4 == 'En curso'){ %>
+                     #ffdf00
+                     <% } else if(registro.column4 == 'Finalizado'){ %>  
+                    #00a13e
+                    <% } else{ %>  
+                    #e01a00
+                    <% } %>;" 
+                >  
+                    <select name="statusprocedimiento">
+                        <option value="" disabled selected hidden><%= registro.column4 %></option>
+                        <option value="En curso">En curso</option>
+                        <option value="Finalizado">Finalizado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </td>
+                <td><%= registro.column5 %></td>
+                <td style="background-color: <% if(registro.column6 == 'Descanso'){ %>
+                    #ffdf00
+                    <% } else if(registro.column6 == 'Listo'){ %>  
+                   #00a13e
+                   <% } else{ %>  
+                   #e01a00
+                   <% } %>;" 
+               >  
+                    <select name="statuscirujano" >
+                        <option value="" disabled selected hidden><%= registro.column6 %></option>
+                        <option value="Descanso">Descanso</option>
+                        <option value="Listo">Listo</option>
+                        <option value="Ausente">Ausente</option>
+                    </select>
+                </td>
+                <td><%= registro.column7 %></td>
+                <td style="background-color: <% if(registro.column8 == 'Limpieza'){ %>
+                    #ffdf00
+                    <% } else if(registro.column8 == 'Listo'){ %>  
+                   #00a13e
+                   <% } else{ %>  
+                   #e01a00
+                   <% } %>;" 
+               >  
+                    <select name="statussala">
+                        <option value="" disabled selected hidden><%= registro.column8 %></option>
+                        <option value="Ocupado">Ocupado</option>
+                        <option value="Limpieza">Limpieza</option>
+                        <option value="Listo">Listo</option>
+                    </select>
+                </td>
+                <td><%= registro.column9 %></td>
+                <td style="background-color: <% if(registro.column10 == 'Preoperatorio'){ %>
+                    #ffdf00
+                    <% } else if(registro.column10 == 'Listo'){ %>  
+                   #00a13e
+                   <% } else{ %>  
+                   #e01a00
+                   <% } %>;" 
+               > 
+                    <select name="statusepisodio">
+                        <option value="" disabled selected hidden><%= registro.column10 %></option>
+                        <option value="Admision">Admision</option>
+                        <option value="Preoperatorio">Preoperatorio</option>
+                        <option value="Listo">Listo</option>
+                    </select>
+                </td>
+                <td><%= registro.column11 %></td>
+                <td style="background-color: <% if(registro.column12 == 'En curso'){ %>
+                    #ffdf00
+                    <% } else if(registro.column12 == 'Asignada'){ %>  
+                   #00a13e
+                   <% } else{ %>  
+                   #e01a00
+                   <% } %>;" 
+               > 
+                    <select name="statusepisodio">
+                        <option value="" disabled selected hidden><%= registro.column12 %></option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En curso">En curso</option>
+                        <option value="Asignada">Asignada</option>
+                    </select>
+                </td>
+            </tr>
+         <% }) %>
+        </tbody>
+    </table>
+
+</body>
+
+<% if(typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title:'<%= alertTitle %>',
+            text:'<%= alertMessage %>',
+            icon:'<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+        }).then(()=>{
+            window.location='<%= ruta %>'
+        })
+    </script>
+<% } %>
+
+</html>

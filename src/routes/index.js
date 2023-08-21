@@ -41,7 +41,7 @@ router.get('/publicidad', (req, res) => {
 router.get('/semaforo', async (req, res) => {
     try{
         const rows = await obtenerRegistros();
-        console.log(rows)
+        //console.log(rows)
         objQuery = JSON.parse(JSON.stringify(rows));
         res.render('semaforo.html', { 
             title: 'Semaforo',

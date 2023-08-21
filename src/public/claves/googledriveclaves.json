@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "cool-oarlock-363820",
+    "private_key_id": "3bdeef1e18e8cace9ecc33f948ce5a11b276967b",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCY1OB70FCK4/rU\nbYiPj4ZQq1Wxi+pesSHSgh58zHjgc4khEGTfvqGYYWE+hN38B2cdaAULC595TxxO\np1mv1q5X0hP5sH16sM5BkazYZ2qBOwE908wkli98fTkE3svewupnsEr5kPYQgNSp\nF4WlBMbEoXJD7pyNqlEAdWg/rtea7OZEx2ymE3L3ffY09xedL66ckXIsKENIxpje\ns1qXuNgdRFTjo6OrWTzszkqe+zJzyCCFkdULIoFzvmSGMacNqMXT5iGBiXEm9wNF\nYERfBZSBYQ1e5Dca/1V/FwOiGlrIRk/7uHwLI+0eZo29MxxYbc82pOoktB4ardI+\nO2XFNennAgMBAAECggEAAiFZfbBSJxV1bheWwzWDcEVrHN3v5uD+MTJ6HVA2UR6b\nJzhUx5+fHgIhel8cvwIVaF4GT/iaAPVe1iPUBrTt2jCF8cGJhjfHsDdJGv0aCXIa\nmtOEcXAcelY+gLhgTBsYbFiTOvZPz7wT+sVmqf2ujZgYgSTmzry0g1afnN+hhrnI\nFNuebx4H26wNgZqowp3q6je7FzGSmj8laVnvuh2G0g3Viik7JFb7AtjPO7VhEfWU\nKyFBnk2Noed2+EK1YZk6AWiAlm/z5M/lItTFzOs9c9MnDMEthjfiAsqEI5nJ15IW\nntPF9wURvF2P/VJbBELM2H967eNKXmV2R6H9TkvA2QKBgQDX3xcVzIM5g3XOSigQ\nt+9goAA3ivsxVHnjvRT6gp6z5owoGk3IOquwHJiW3Vd/R0rfJrAHL9emGK31c6Bp\nMEoiiHL5lo1ZBRKnJwfP3EGBIvqduLeTZlbh1WRaMs5d0Xqg2wFLWA/ZBAEuBBV1\nI1MHido1iWp6+gbEr4xvCBsFHwKBgQC1Pdamgx50G1xRfTArG/0JtcQBnysqYsjz\nNJPYJq+q/KqOl4RK0OgFpT46IHgvOcJMhZOMH5+B+IhFrIJ9QNMwW7Ocy5YiSXcU\nl/7hnGWHymdP3iijUH948E+dxaGeJFqxiJMY7+GQRKD3Ocovys32z97nOh9jmcOW\nkYzuiB96OQKBgQCfO6o1pDOvuu6tCjpfiq4CYkOGtPfxPVTjzlepKayTGx6Lfkud\nxNlcANv1fLPL6PSrgkgaJQo3NMEs6uuKa9pjeq8EuC7vWTSXI805YEjZTsn6iYSw\nL68qylNJzWw3/AsumB1uTDj0ZWXRYaXKUBIw31icYQ6wQ7m2X5+BT0NPFQKBgFIo\nMgFRNqDTNkoKQaeJDG82Yh+KE3snRIhasRoujzsnRflVXba8dDD68vZOeayOtjER\n7Ax82UWFb+CFjrFQjWtCZm0RLIFmZACF1hhXWP7xFVvzDODbQK2F4dFXISgaurH3\ngxauxsUrFvx6ydhYSn0zRYvzoP75WNwMJqKKOhqhAoGADsP5xMiipgXY2IHX+r+Y\nJFYs7cLVu3GKV6x+/tWBlGkV9SjKVy7zxQy2hBbl/CAnrizLb45uuib6GPYNkEPp\nP9A7nDFRHiRE4CaEFMTTIzkU3YOJv2z4rRL8YWcK2hBrbwM2xKhejvQAClsxbBFq\ncmqZ+TW2XrK7JBQ3g1RvPX8=\n-----END PRIVATE KEY-----\n",
+    "client_email": "rifasperronas@cool-oarlock-363820.iam.gserviceaccount.com", 
+    "client_id": "109034140732820031219",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rifasperronas%40cool-oarlock-363820.iam.gserviceaccount.com"
+  }
+  
