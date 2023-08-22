@@ -61,3 +61,24 @@ app.use(require('./routes/index'));
 app.listen(app.get('port'), () => {
     console.log('listening on port',app.get('port'));
 });
+
+let googleSheet = require('./spreadsheets')
+
+app.post('/actualizarStatus', async (req, res) => {
+    try{
+        const statusToUpdate = req.body.status;
+        const idToUpdate = req.body.idIem;
+        const columnToUpdate = req.body.columnItem;
+    
+        res.header("Access-Control-Allow-Origin", "*");
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+        await googleSheet.actualizarRegistroGS(statusToUpdate,idToUpdate,columnToUpdate);
+
+        res.end(statusToUpdate);
+        
+    }catch(err){
+        console.log(err);
+    }
+});

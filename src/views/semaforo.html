@@ -17,6 +17,42 @@
 
     <%- include("./partials/header.html") %>
 
+    <script>
+        function actualizarRegistro(item, id, column){
+            var value = item.value;
+            console.log(value);
+    
+            $.ajax({
+                url: "/actualizarStatus",
+                cache: false,
+                data: { status: value, idIem: id, columnItem: column},
+                type:'POST',
+                dataType: 'json',
+                success: function () {
+                    console.log("actualizado")
+                },
+                complete: function () {
+                    window.location.reload();
+                },
+                error: function (e) {
+                    console.log("error "+e)
+                    /*
+                    Swal.fire({
+                        title:'Fallo',
+                        text:'Error inesperado, por favor intenta más tarde',
+                        icon:'warning',
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(()=>{
+                        window.location='/semaforo'
+                    });
+                    */
+                }
+            });
+            
+        }
+    </script>
+
     <table class="styled-table">
         <thead>
             <tr>
@@ -49,7 +85,7 @@
                     #e01a00
                     <% } %>;" 
                 >  
-                    <select name="statusprocedimiento">
+                    <select name="statusprocedimiento" onchange="actualizarRegistro(this,<%= registro.column13 %>,4)">
                         <option value="" disabled selected hidden><%= registro.column4 %></option>
                         <option value="En curso">En curso</option>
                         <option value="Finalizado">Finalizado</option>
@@ -65,7 +101,7 @@
                    #e01a00
                    <% } %>;" 
                >  
-                    <select name="statuscirujano" >
+                    <select name="statuscirujano" onchange="actualizarRegistro(this,<%= registro.column13 %>,6)">
                         <option value="" disabled selected hidden><%= registro.column6 %></option>
                         <option value="Descanso">Descanso</option>
                         <option value="Listo">Listo</option>
@@ -81,7 +117,7 @@
                    #e01a00
                    <% } %>;" 
                >  
-                    <select name="statussala">
+                    <select name="statussala" onchange="actualizarRegistro(this,<%= registro.column13 %>,8)">
                         <option value="" disabled selected hidden><%= registro.column8 %></option>
                         <option value="Ocupado">Ocupado</option>
                         <option value="Limpieza">Limpieza</option>
@@ -97,7 +133,7 @@
                    #e01a00
                    <% } %>;" 
                > 
-                    <select name="statusepisodio">
+                    <select name="statusepisodio" onchange="actualizarRegistro(this,<%= registro.column13 %>,10)">
                         <option value="" disabled selected hidden><%= registro.column10 %></option>
                         <option value="Admision">Admision</option>
                         <option value="Preoperatorio">Preoperatorio</option>
@@ -113,7 +149,7 @@
                    #e01a00
                    <% } %>;" 
                > 
-                    <select name="statusepisodio">
+                    <select name="statusepisodio" onchange="actualizarRegistro(this,<%= registro.column13 %>,12)">
                         <option value="" disabled selected hidden><%= registro.column12 %></option>
                         <option value="Pendiente">Pendiente</option>
                         <option value="En curso">En curso</option>
