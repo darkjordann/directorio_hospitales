@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body id="NewBody">
+
+    <div style="width: 100%;">
+        <iframe style="max-width:100%" 
+        src="https://wordwall.net/es/embed/6d657f593d374b4cb143bca6c1babf3a?themeId=56&templateId=8&fontStackId=15" 
+        width="500" height="380" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+</body>
+
+<% if(typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title:'<%= alertTitle %>',
+            text:'<%= alertMessage %>',
+            icon:'<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+        }).then(()=>{
+            window.location='<%= ruta %>'
+        })
+    </script>
+<% } %>
+
+</html>

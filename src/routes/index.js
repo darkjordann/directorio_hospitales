@@ -54,5 +54,10 @@ router.get('/semaforo', async (req, res) => {
 });
 
 
+//Spin the wheel
+router.get('/wheel', (req, res) => {
+    res.render('wheel.html', { title: 'Spin the wheel', msg:req.session.name} );
+});
+
 
 module.exports = router;
