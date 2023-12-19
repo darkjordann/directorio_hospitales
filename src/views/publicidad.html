@@ -17,11 +17,15 @@
 <body id="NewBody">
 
     <div style="width: 100%;">
-        <img id="imageSourceAnuncios" src="/images/promocional3.jpg" style="width: 100%;" alt="image">
+        <a style="width: 100%;" href="/home">
+            <img id="imageSourceAnuncios" src="/images/promocional1.png" style="width: 100%;" alt="image">
+        </a>
     </div>
 
     <script>
-        let images = ['/images/promocional1.jpg', '/images/promocional2.jpg', '/images/promocional3.jpg'];
+        let images = ['/images/promocional1.png', '/images/promocional2.png', 
+                    '/images/promocional3.png', '/images/promocional4.png', 
+                    '/images/promocional5.png'];
 
         let index = 0;
         const imgElement = document.querySelector('#imageSourceAnuncios');
@@ -32,7 +36,7 @@
         }
 
         window.onload = function () {
-            setInterval(change, 5000);
+            setInterval(change, 10000);
             console.log("change")
         };
     </script>
