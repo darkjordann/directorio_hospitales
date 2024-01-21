@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body>
+
+    <video src="/images2/Fondofinal.mp4" muted autoplay loop style="object-fit: cover;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;"></video>
+
+    <%- include("./partials/header4ruta3.html") %>
+
+    <div style="padding-left: 30px;padding-right: 30px; padding-top: 30px;">
+        <input id="searchbar" class="searchbargray" autocomplete="off" onkeyup="searchFilter()" type="text"\n name="search" placeholder="Busca algun doctor">
+    </div>
+
+    <div class="card-grid-2" id="containerEspecial">
+        
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal" id="myModal" style="overflow-y:auto; background:rgba(0, 0, 0, 0.5);" onclick="document.getElementById('myModal').style.display = 'none';">
+        <div class="modal-dialog modal-dialog-centered modal-xl" style="background-color: transparent;">
+            <!-- Modal content-->
+            <div class="modal-content" style="background-color: transparent;">
+
+                <div class="modal-body" id="modalbodyId">
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    function modalshow(param) {
+        if(param == "TORRE HOSPITALIZACIÓN"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoC/TorreHospitalizacionRuta3.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE ANGELES"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoC/TorreAngelesRuta3.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE CLINICA ANGELES"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoC/TorreClinicaAngelesRuta3.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE CONSULTORIOS"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoC/TorreConsultoriosRuta3.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE ESPECIALIDADES QUIRURGICAS"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoC/TorreEspecialidadesQuirugicasRuta3.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const especia = urlParams.get('especialidad');
+
+    console.log(especia);
+
+    var masterData ='<%= JSON.stringify(objQuery) %>'
+    masterData = masterData.replaceAll('&#34;','"')
+    masterData = JSON.parse(masterData)
+    var FilterJson = masterData
+
+    if(especia != "Todos"){
+        FilterJson = masterData.filter(x => x.especialidad === especia);
+        masterData = masterData.filter(x => x.especialidad === especia);
+    }
+
+    for (Element in FilterJson){
+        document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+FilterJson[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+FilterJson[Element].nombre+' <br> '+FilterJson[Element].apellido+'</p><p class="textDoctors">'+FilterJson[Element].especialidad+'</p><p class="textDoctors">'+FilterJson[Element].consultorio+'</p><p class="textDoctors">'+FilterJson[Element].torre+'</p></div></div>';
+    }
+
+    function searchFilter(){
+        let text = document.getElementById('searchbar').value
+        if(text) {
+        const newData = masterData.filter((item) => {
+            const itemData = item.especialidad ? item.especialidad.toUpperCase() : ''.toUpperCase();
+            const itemData2 = item.nombre ? item.nombre.toUpperCase() : ''.toUpperCase();
+            const itemData3 = item.apellido ? item.apellido.toUpperCase() : ''.toUpperCase();
+            const textData = text.toUpperCase();
+            return itemData.indexOf(textData) > -1 || itemData2.indexOf(textData) > -1 || itemData3.indexOf(textData) > -1;
+        });
+        document.getElementById('containerEspecial').innerHTML =''
+        for (Element in newData){
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+newData[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+newData[Element].nombre+' <br> '+newData[Element].apellido+'</p><p class="textDoctors">'+newData[Element].especialidad+'</p><p style="text-align: center; color: aliceblue; font-size: 12px;">'+newData[Element].consultorio+'</p><p class="textDoctors">'+newData[Element].torre+'</p></div></div>';
+            }
+        } else {
+        document.getElementById('containerEspecial').innerHTML =''
+        for (Element in masterData){
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+masterData[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+masterData[Element].nombre+' <br> '+masterData[Element].apellido+'</p><p class="textDoctors">'+masterData[Element].especialidad+'</p><p class="textDoctors">'+masterData[Element].consultorio+'</p><p class="textDoctors">'+masterData[Element].torre+'</p></div></div>';
+            }
+        }
+    }
+</script>
+
+</html>

@@ -87,12 +87,68 @@ router.get('/especialidades', async (req, res) => {
     }
 });
 
+router.get('/especialidadesruta2', async (req, res) => {
+    try{
+        const rows = await obtenerEspecialidades();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('especialidadesruta2.html', { 
+            title: 'especialidadesruta2',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+router.get('/especialidadesruta3', async (req, res) => {
+    try{
+        const rows = await obtenerEspecialidades();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('especialidadesruta3.html', { 
+            title: 'especialidadesruta3',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
 router.get('/doctores', async (req, res) => {
     try{
         const rows = await obtenerDoctores();
         objQuery = JSON.parse(JSON.stringify(rows));
         res.render('doctores.html', { 
             title: 'doctores',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+router.get('/doctoresruta2', async (req, res) => {
+    try{
+        const rows = await obtenerDoctores();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('doctoresruta2.html', { 
+            title: 'doctoresruta2',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+router.get('/doctoresruta3', async (req, res) => {
+    try{
+        const rows = await obtenerDoctores();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('doctoresruta3.html', { 
+            title: 'doctoresruta3',
             msg: req.session.name,
             registros:objQuery
         });

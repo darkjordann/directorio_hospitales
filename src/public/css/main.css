@@ -6,6 +6,18 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@font-face {
+  font-family: 'Champagne & Limousines';
+  src: url('Champagne & Limousines.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('Champagne & Limousines.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
+@font-face {
+  font-family: 'Champagne & Limousines Bold';
+  src: url('Champagne & Limousines Bold.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('Champagne & Limousines Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
 #NewBody{
   background-image: url('');
   background-repeat: no-repeat;
@@ -265,19 +277,32 @@ select {
 
 .card-style {
   background-color: #0496C7;
-  height: 100px;
-  width: 100%;
+  height: 110px;
+  width: 280px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   color: black;
   position: relative;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(70deg, #0496C7 60%, #094293); 
+  background: linear-gradient(70deg, #29AAE1 60%, #0071BB); 
 }
 
 .card-content {
   margin: 0;
+  padding: 0;
+  width: 280px;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.card-content-2 {
+  margin: 0;
+  padding: 0;
+  width: 170px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -292,31 +317,31 @@ select {
   grid-gap: 1rem;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 5%;
+  padding-top: 2%;
   padding-bottom: 5%;
 }
 
 .card-grid-2 {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   grid-auto-rows: auto;
   grid-gap: 1rem;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 5%;
+  padding-top: 2%;
   padding-bottom: 5%;
 }
 
 .card-style-2 {
-  background-color: #0496C7;
-  height: 300px;
-  width: 100%;
+  background-color: #0071BB;
+  height: 200px;
+  width: 170px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   position: relative;
   justify-content: center;
   align-items: center;
-  opacity: .6;
+  opacity: .4;
 }
 
 .card-content-2 {
@@ -335,4 +360,23 @@ select {
   opacity: 0.5; 
   border-radius: 15px;
   color: white;
+}
+
+::placeholder {
+  color:white;
+  opacity: 1; /* Firefox */
+}
+
+.textDoctors{
+  text-align: center; 
+  color: aliceblue;
+  font-size: 12px;
+  font-family:'Champagne & Limousines';
+}
+
+.textEspecialidad{
+  text-align: center; 
+  color: aliceblue;
+  font-size: 15px;
+  font-family:'Champagne & Limousines Bold';
 }

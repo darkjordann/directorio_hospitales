@@ -21,7 +21,7 @@
     min-height: 100%;
     z-index: -1;"></video>
 
-    <%- include("./partials/header3.html") %>
+    <%- include("./partials/header4.html") %>
 
     <div style="padding-left: 30px;padding-right: 30px; padding-top: 30px;">
         <input id="searchbar" class="searchbargray" autocomplete="off" onkeyup="searchFilter()" type="text"\n name="search" placeholder="Busca algun doctor">
@@ -33,14 +33,11 @@
 
 
     <!-- Modal -->
-    <div class="modal" id="myModal" role="dialog" style="overflow-y:auto; background:rgba(0, 0, 0, 0.5);">
-        <div class="modal-dialog modal-dialog-centered">
-        
+    <div class="modal" id="myModal" style="overflow-y:auto; background:rgba(0, 0, 0, 0.5);" onclick="document.getElementById('myModal').style.display = 'none';">
+        <div class="modal-dialog modal-dialog-centered modal-xl" style="background-color: transparent;">
             <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" style="background-color: transparent; border-color: transparent; font-size: 20px;" class="close" data-dismiss="modal" onclick="document.getElementById('myModal').style.display = 'none';">&times;</button>
-                </div>
+            <div class="modal-content" style="background-color: transparent;">
+
                 <div class="modal-body" id="modalbodyId">
                 </div>
             </div>
@@ -53,7 +50,17 @@
 <script>
 
     function modalshow(param) {
-        document.getElementById('modalbodyId').innerHTML='<video src="/images2/'+param+'.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        if(param == "TORRE HOSPITALIZACIÓN"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoA/TorreHospitalizacion.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE ANGELES"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoA/CroquisPrincipal.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE CLINICA ANGELES"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoA/TorreClinicaAngeles.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE CONSULTORIOS"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoA/TorreConsultorios.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }else if(param == "TORRE ESPECIALIDADES QUIRURGICAS"){
+            document.getElementById('modalbodyId').innerHTML='<video src="/images2/PuntoA/TorreEspecialidadesQuirurgicas.mp4" muted autoplay loop style="object-fit: cover; width: 100%">'
+        }
         document.getElementById("myModal").style.display = "block";
     }
 
@@ -74,7 +81,7 @@
     }
 
     for (Element in FilterJson){
-        document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+FilterJson[Element].torre+'&#39)"><div class="card-content"><p style="text-align: center; color: aliceblue;">'+FilterJson[Element].nombre+'</p><p style="text-align: center; color: aliceblue;">'+FilterJson[Element].apellido+'</p><p style="text-align: center; color: aliceblue;">'+FilterJson[Element].especialidad+'</p><p style="text-align: center; color: aliceblue;">'+FilterJson[Element].consultorio+'</p><p style="text-align: center; color: aliceblue;">'+FilterJson[Element].torre+'</p></div></div>';
+        document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+FilterJson[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+FilterJson[Element].nombre+' <br> '+FilterJson[Element].apellido+'</p><p class="textDoctors">'+FilterJson[Element].especialidad+'</p><p class="textDoctors">'+FilterJson[Element].consultorio+'</p><p class="textDoctors">'+FilterJson[Element].torre+'</p></div></div>';
     }
 
     function searchFilter(){
@@ -89,12 +96,12 @@
         });
         document.getElementById('containerEspecial').innerHTML =''
         for (Element in newData){
-            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+newData[Element].torre+'&#39)"><div class="card-content"><p style="text-align: center; color: aliceblue;">'+newData[Element].nombre+'</p><p style="text-align: center; color: aliceblue;">'+newData[Element].apellido+'</p><p style="text-align: center; color: aliceblue;">'+newData[Element].especialidad+'</p><p style="text-align: center; color: aliceblue;">'+newData[Element].consultorio+'</p><p style="text-align: center; color: aliceblue;">'+newData[Element].torre+'</p></div></div>';
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+newData[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+newData[Element].nombre+' <br> '+newData[Element].apellido+'</p><p class="textDoctors">'+newData[Element].especialidad+'</p><p style="text-align: center; color: aliceblue; font-size: 12px;">'+newData[Element].consultorio+'</p><p class="textDoctors">'+newData[Element].torre+'</p></div></div>';
             }
         } else {
         document.getElementById('containerEspecial').innerHTML =''
         for (Element in masterData){
-            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+masterData[Element].torre+'&#39)"><div class="card-content"><p style="text-align: center; color: aliceblue;">'+masterData[Element].nombre+'</p><p style="text-align: center; color: aliceblue;">'+masterData[Element].apellido+'</p><p style="text-align: center; color: aliceblue;">'+masterData[Element].especialidad+'</p><p style="text-align: center; color: aliceblue;">'+masterData[Element].consultorio+'</p><p style="text-align: center; color: aliceblue;">'+masterData[Element].torre+'</p></div></div>';
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style-2" onclick="modalshow(&#39'+masterData[Element].torre+'&#39)"><div class="card-content-2"><p class="textDoctors">'+masterData[Element].nombre+' <br> '+masterData[Element].apellido+'</p><p class="textDoctors">'+masterData[Element].especialidad+'</p><p class="textDoctors">'+masterData[Element].consultorio+'</p><p class="textDoctors">'+masterData[Element].torre+'</p></div></div>';
             }
         }
     }
