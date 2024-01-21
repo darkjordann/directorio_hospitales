@@ -60,4 +60,46 @@ router.get('/wheel', (req, res) => {
 });
 
 
+/** Seccion dedica al desarrollo de Hospital Angeles Pedregal */
+
+const obtenerEspecialidades = async (req,res) => {
+    registros = await googleSheet.extraerEspecialidades()
+    return registros
+}
+
+const obtenerDoctores = async (req,res) => {
+    registros = await googleSheet.extraerDoctores()
+    return registros
+}
+
+//Routes pedregal
+router.get('/especialidades', async (req, res) => {
+    try{
+        const rows = await obtenerEspecialidades();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('especialidades.html', { 
+            title: 'especialidades',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+router.get('/doctores', async (req, res) => {
+    try{
+        const rows = await obtenerDoctores();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('doctores.html', { 
+            title: 'doctores',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+
 module.exports = router;

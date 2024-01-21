@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body>
+
+    <video src="/images2/Fondofinal.mp4" muted autoplay loop style="object-fit: cover;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;"></video>
+
+    <%- include("./partials/header3.html") %>
+
+    <div style="padding-left: 30px;padding-right: 30px; padding-top: 30px;">
+        <input id="searchbar" class="searchbargray" autocomplete="off" onkeyup="searchFilter()" type="text"\n name="search" placeholder="Busca alguna especialidad">
+    </div>
+
+    <div class="card-grid" id="containerEspecial">
+        <% Object.values(objQuery).forEach(function(registro){ %>
+            <div class="card-style">
+                <a href="/doctores?especialidad=<%= registro.especialidad %>">
+                    <div class="card-content">
+                        <p style="text-align: center; color: aliceblue;"><%= registro.especialidad %></p>
+                    </div>
+                </a>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+
+<script>
+
+    var masterData ='<%= JSON.stringify(objQuery) %>'
+    masterData = masterData.replaceAll('&#34;','"')
+    masterData = JSON.parse(masterData)
+
+    function searchFilter(){
+        let text = document.getElementById('searchbar').value
+        if(text) {
+        const newData = masterData.filter((item) => {
+            const itemData = item.especialidad ? item.especialidad.toUpperCase() : ''.toUpperCase();
+            const textData = text.toUpperCase();
+            return itemData.indexOf(textData) > -1;
+        });
+        document.getElementById('containerEspecial').innerHTML =''
+        for (Element in newData){
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style"><div class="card-content"><p style="text-align: center; color: aliceblue;">'+newData[Element].especialidad+'</p></div></div>';
+            }
+        } else {
+        document.getElementById('containerEspecial').innerHTML =''
+        for (Element in masterData){
+            document.getElementById('containerEspecial').innerHTML += '<div class="card-style"><div class="card-content"><p style="text-align: center; color: aliceblue;">'+masterData[Element].especialidad+'</p></div></div>';
+            }
+        }
+    }
+</script>
+
+</html>
