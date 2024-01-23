@@ -31,8 +31,8 @@
         const imgElement = document.querySelector('#imageSourceAnuncios');
 
         function change() {
-        imgElement.src = images[index];
-        index > 1 ? index = 0 : index++;
+        imgElement.src = images[Math.floor(Math.random() * images.length)];
+        index > 3 ? index = 0 : index++;
         }
 
         window.onload = function () {
