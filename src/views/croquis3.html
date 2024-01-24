@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        <%= title %>
+    </title>
+
+    <%- include("./partials/head.html") %>
+
+</head>
+
+<body id="NewBody" style="height: 100%;">
+
+    <video id="principalVideo" src="/images2/PuntoC/TorreEspecialidadesQuirugicasRuta3.mp4" muted autoplay loop style="object-fit: cover;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;"></video>
+
+    <div style="width: 100%;min-height: 100%;">
+        <button class="gray-button" style="position:fixed;bottom: 9%;left: 18%; z-index: 2;" onclick="chanceBackground('InformesRuta3.mp4')">
+            <div class="card-content-button">
+                INFORMES
+            </div>
+        </button>
+        <button class="gray-button" style="position:fixed;bottom: 1%;left: 18%; z-index: 2;" onclick="chanceBackground('TorreConsultoriosRuta3.mp4')">
+            <div class="card-content-button">
+                TORRE CONSULTORIOS
+            </div>
+        </button>
+        <button class="gray-button" style="position:fixed;bottom: 9%;left: 25%; z-index: 2;" onclick="chanceBackground('TorreAngelesRuta3.mp4')">
+            <div class="card-content-button">
+                TORRE ANGELES
+            </div>
+        </button>
+        <button class="gray-button" style="position:fixed;bottom: 1%;left: 25%; z-index: 2;" onclick="chanceBackground('TorreEspecialidadesQuirugicasRuta3.mp4')">
+            <div class="card-content-button">
+                TORRE ESPECIALIDADES QUIRURGICAS
+            </div>
+        </button>
+        <button class="gray-button" style="position:fixed;bottom: 9%;left: 32%; z-index: 2;" onclick="chanceBackground('TorreClinicaAngelesRuta3.mp4')">
+            <div class="card-content-button">
+                TORRE CLINICA ANGELES
+            </div>
+        </button>
+        <button class="gray-button" style="position:fixed;bottom: 1%;left: 32%; z-index: 2;" onclick="chanceBackground('TorreHospitalizacionRuta3.mp4')">
+            <div class="card-content-button">
+                TORRE HOSPITALIZACIÓN
+            </div>
+        </button>
+
+
+
+        <button class="blue-button" style="position:fixed;bottom: 9%;left: 42%; z-index: 2;" onclick="chanceBackground('AdmisionRuta3.mp4')">
+            <div class="card-content-button-blue">
+                ADMINISTRACIÓN
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 1%;left: 42%; z-index: 2;" onclick="chanceBackground('ImagenologiaRuta3.mp4')">
+            <div class="card-content-button-blue">
+                IMAGENOLOGÍA
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 9%;left: 49%; z-index: 2;" onclick="chanceBackground('AdmisionyCajasRuta3.mp4')">
+            <div class="card-content-button-blue">
+                ADMISIÓN y CAJAS
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 1%;left: 49%; z-index: 2;" onclick="chanceBackground('LaboratorioRuta3.mp4')">
+            <div class="card-content-button-blue">
+                LABORATORIO
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 9%;left: 56%; z-index: 2;" onclick="chanceBackground('BancoMultivaRuta3.mp4')">
+            <div class="card-content-button-blue">
+                BANCO MULTIVA
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 1%;left: 56%; z-index: 2;" onclick="chanceBackground('MedicinaFisicayRehabilitacionRuta3.mp4')">
+            <div class="card-content-button-blue">
+                MEDICINA FÍSICA Y REHABILITACIÓN
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 9%;left: 63%; z-index: 2;" onclick="chanceBackground('FarmaciayRegalosRuta3.mp4')">
+            <div class="card-content-button-blue">
+                FARMACIA Y TIENDA DE REGALOS
+            </div>
+        </button>
+        <button class="blue-button" style="position:fixed;bottom: 1%;left: 63%; z-index: 2;" onclick="chanceBackground('UrgenciasRuta3.mp4')">
+            <div class="card-content-button-blue">
+                URGENCIAS
+            </div>
+        </button>
+
+
+
+        <button class="yellow-button" style="position:fixed;bottom: 9%;left: 75%; z-index: 2;" onclick="chanceBackground('KrispykremeRuta3.mp4')">
+            <div class="card-content-button-blue">
+                KRISPY KREME
+            </div>
+        </button>
+        <button class="yellow-button" style="position:fixed;bottom: 1%;left: 75%; z-index: 2;" onclick="chanceBackground('StarbucksRuta3.mp4')">
+            <div class="card-content-button-blue">
+                STARBUCKS
+            </div>
+        </button>
+        <button class="yellow-button" style="position:fixed;bottom: 9%;left: 83%; z-index: 2;" onclick="chanceBackground('MaisonKayserRuta3.mp4')">
+            <div class="card-content-button-blue">
+                MAISON KAYSER
+            </div>
+        </button>
+        <button class="red-button" style="position:fixed;bottom: 1%;left: 83%; z-index: 2;" onclick="chanceURL()">
+            <div class="card-content-button-blue">
+                DIRECTORIO MÉDICO
+            </div>
+        </button>
+    </div>
+
+    <script>
+        const videoElement = document.querySelector('#principalVideo');
+
+        function chanceBackground(element){
+            videoElement.src = "/images2/PuntoC/"+element
+        }
+
+        function chanceURL(){
+            window.location.replace("/especialidadesruta3");
+        }
+    </script>
+
+</body>
+
+<% if(typeof alert != "undefined") { %>
+    <script>
+        Swal.fire({
+            title:'<%= alertTitle %>',
+            text:'<%= alertMessage %>',
+            icon:'<%= alertIcon %>',
+            showConfirmButton: <%= showConfirmButton %>,
+            timer: <%= timer %>
+        }).then(()=>{
+            window.location='<%= ruta %>'
+        })
+    </script>
+<% } %>
+
+</html>

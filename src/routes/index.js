@@ -168,5 +168,26 @@ router.get('/croquis1', async (req, res) => {
     }
 });
 
+router.get('/croquis2', async (req, res) => {
+    try{
+        res.render('croquis2.html', { 
+            title: 'croquis2',
+            msg: req.session.name
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
+router.get('/croquis3', async (req, res) => {
+    try{
+        res.render('croquis3.html', { 
+            title: 'croquis3',
+            msg: req.session.name
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
 
 module.exports = router;
