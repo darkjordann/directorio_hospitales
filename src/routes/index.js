@@ -157,5 +157,16 @@ router.get('/doctoresruta3', async (req, res) => {
     }
 });
 
+router.get('/croquis1', async (req, res) => {
+    try{
+        res.render('croquis1.html', { 
+            title: 'croquis1',
+            msg: req.session.name
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
+
 
 module.exports = router;
