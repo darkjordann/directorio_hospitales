@@ -60,7 +60,7 @@
     function timerIncrement() {
         idleTime = idleTime + 1;
         if (idleTime > 1) { // 20 minutes
-            window.location.replace("https://www.smartreflection.com.mx/croquishap");
+            window.location.replace("/croquis1");
         }
     }
 </script>
@@ -83,6 +83,7 @@
         for (Element in newData){
             document.getElementById('containerEspecial').innerHTML += '<a href="/doctores?especialidad='+newData[Element].especialidad+'"><div class="card-style"><div class="card-content"><p class="textEspecialidad">'+newData[Element].especialidad+'</p></div></div></a>';
             }
+
         } else {
         document.getElementById('containerEspecial').innerHTML =''
         for (Element in masterData){
