@@ -28,12 +28,12 @@
         masterData = masterData.replaceAll('&#34;','"')
         masterData = JSON.parse(masterData)
 
-        document.querySelector('#imageSourceAnuncios').src = "https://drive.google.com/thumbnail?id="+masterData[0].id
+        document.querySelector('#imageSourceAnuncios').src = "https://drive.google.com/thumbnail?id="+masterData[0].id+"&sz=w800"
 
         var images = [];
 
         for (Element in masterData){
-            images.push("https://drive.google.com/thumbnail?id="+masterData[Element].id);
+            images.push("https://drive.google.com/thumbnail?id="+masterData[Element].id+"&sz=w800");
         }
 
         let index = 0;
