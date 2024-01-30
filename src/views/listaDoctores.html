@@ -79,6 +79,7 @@
 <script>
 
     function modalshow(nombre,apellido,especialidad,consultorio,extension,qr) {
+        console.log("prueba");
         document.getElementById('nombreDoctor').innerHTML=nombre+'<br>'+apellido
         document.getElementById('especialidadDoctor').innerHTML=especialidad
         document.getElementById('consultorioDoctor').innerHTML=consultorio
@@ -90,8 +91,6 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const especia = urlParams.get('especialidad');
-
-    console.log(especia);
 
     var masterData ='<%= JSON.stringify(objQuery) %>'
     masterData = masterData.replaceAll('&#34;','"')

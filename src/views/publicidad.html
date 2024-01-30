@@ -23,9 +23,18 @@
     </div>
 
     <script>
-        let images = ['/images/promocional1.png', '/images/promocional2.png', 
-                    '/images/promocional3.png', '/images/promocional4.png', 
-                    '/images/promocional5.png'];
+
+        var masterData ='<%= JSON.stringify(objQuery) %>'
+        masterData = masterData.replaceAll('&#34;','"')
+        masterData = JSON.parse(masterData)
+
+        document.querySelector('#imageSourceAnuncios').src = "https://drive.google.com/thumbnail?id="+masterData[0].id
+
+        var images = [];
+
+        for (Element in masterData){
+            images.push("https://drive.google.com/thumbnail?id="+masterData[Element].id);
+        }
 
         let index = 0;
         const imgElement = document.querySelector('#imageSourceAnuncios');

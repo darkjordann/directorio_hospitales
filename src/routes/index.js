@@ -15,6 +15,11 @@ const obtenerDoctoresAcoxpa = async (req,res) => {
     return registros
 }
 
+const obtenerpublicidadAcoxpa = async (req,res) => {
+    registros = await googleSheet.extraerPublicidadAcoxpa()
+    return registros
+}
+
 //Routes
 router.get('/', async (req, res) => {
     try{
@@ -59,8 +64,18 @@ router.get('/listaDoctores', async (req, res) => {
 });
 
 //Publicidad
-router.get('/publicidad', (req, res) => {
-    res.render('publicidad.html', { title: 'Publicidad', msg:req.session.name} );
+router.get('/publicidad', async (req, res) => {
+    try{
+        const rows = await obtenerpublicidadAcoxpa();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('publicidad.html', { 
+            title: 'Publicidad',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
 });
 
 //Routes

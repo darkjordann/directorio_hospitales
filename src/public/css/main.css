@@ -290,7 +290,10 @@ select {
 
 .card-content {
   margin: 0;
-  padding: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 0;
+  padding-bottom:0 ;
   width: 280px;
   position: absolute;
   top: 57%;
@@ -467,9 +470,9 @@ select {
   background-color: white;
   height: 385px;
   width: 225px;
-  box-shadow: 10px 10px 5px 0px rgba(169,169,169,0.75);
+  box-shadow: 7px 5px 7px 5px rgba(169,169,169,0.75);
   border-radius: 10px;
-  border-color: rgba(169,169,169,0.75);
+  border-color: #666666;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -541,7 +544,7 @@ select {
 
 
 .contentModal{
-  min-width: 60%;
+  width: 60%;
   display: inline-block;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -581,7 +584,7 @@ select {
 
 
 .contentQR{
-  min-width: 39%;
+  width: 39%;
   display: inline-block;
   position: absolute;
 }
