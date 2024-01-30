@@ -2,30 +2,56 @@ const express = require('express');
 const router = express.Router();
 
 
-//spreadsheets para la data de las rifas
+//spreadsheets para obetenr los datos de acoxpa
 let googleSheet = require('../spreadsheets')
-const obtenerRegistros = async (req,res) => {
-    registros = await googleSheet.accederGoogleSheet()
+
+const obtenerEspecialidadesAcoxpa = async (req,res) => {
+    registros = await googleSheet.extraerEspecialidadesAcoxpa()
+    return registros
+}
+
+const obtenerDoctoresAcoxpa = async (req,res) => {
+    registros = await googleSheet.extraerDoctoresAcoxpa()
     return registros
 }
 
 //Routes
-router.get('/', (req, res) => {
-    //console.log(__dirname+"/views/index.html")
-    //res.sendFile(path.join(__dirname, '/views/index.html'))
-    res.render('home.html', { title: 'Home Page'});
+router.get('/', async (req, res) => {
+    try{
+        const rows = await obtenerEspecialidadesAcoxpa();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('home.html', { 
+            title: 'Home page',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
 });
 
-router.get('/home', (req, res) => {
-    res.render('home.html', { title: 'Home page', msg:req.session.name} );
+router.get('/home', async (req, res) => {
+    try{
+        const rows = await obtenerEspecialidadesAcoxpa();
+        objQuery = JSON.parse(JSON.stringify(rows));
+        res.render('home.html', { 
+            title: 'Home page',
+            msg: req.session.name,
+            registros:objQuery
+        });
+    }catch(err){
+        console.log(err);
+    }
 });
 
 router.get('/listaDoctores', async (req, res) => {
-    //console.log(req.session.user)
     try{
+        const rows = await obtenerDoctoresAcoxpa();
+        objQuery = JSON.parse(JSON.stringify(rows));
         res.render('listaDoctores.html', { 
-            title: 'Lista Doctores',
-            msg: req.session.name
+            title: 'Doctores',
+            msg: req.session.name,
+            registros:objQuery
         });
     }catch(err){
         console.log(err);
