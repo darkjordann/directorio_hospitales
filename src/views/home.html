@@ -41,19 +41,23 @@
         console.log("prueba")
         // Increment the idle time counter every minute.
         var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
-
+        console.log("prueba2")
         // Zero the idle timer on mouse movement.
         $(this).mousemove(function (e) {
             idleTime = 0;
+            console.log("prueba3")
         });
         $(this).keypress(function (e) {
             idleTime = 0;
+            console.log("prueba4")
         });
     });
 
     function timerIncrement() {
+        console.log("prueba5")
         idleTime = idleTime + 1;
         if (idleTime > 1) { // 20 minutes
+            console.log("prueba6")
             window.location.replace("/publicidad");
         }
     }

@@ -142,11 +142,11 @@ async function extraerDoctores(){
     //Llenamos la el array para generar el JSON con la data
     registros.forEach(function(registro) {
         jsonArr.push({
-            nombre: registro._rawData[3],
-            apellido: registro._rawData[1],
-            especialidad: registro._rawData[5],
-            consultorio: registro._rawData[7],
-            torre: registro._rawData[6]
+            nombre: registro._rawData[2],
+            apellido: registro._rawData[3],
+            especialidad: registro._rawData[4],
+            consultorio: registro._rawData[6],
+            torre: registro._rawData[7]
         });
     })
 
